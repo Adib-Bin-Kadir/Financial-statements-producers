@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    text-align: center;
+}
+#{{id}}{
+    background-color: orange;
+}
+.basic {
+    float: left;
+}
+.normal {
+    background-color: #333;
+}
+.basic a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    display: block;
+    padding: 14px 16px;
+}
+.basic a:hover{
+    background-color: #111;
+    color: blue;
+    text-decoration: underline;
+}
+.space{
+margin-top: 10px;
+margin-bottom: 10px;
+}
+table{
+margin-top: 10px;
+margin-bottom: 10px;
+}
+td{
+border: 5px solid red;
+}
+th{
+border: 5px solid blue;
+}
+</style>
+<div>
+<ul>
+    <li id="first" class="basic normal"> <a href="/income_statement/first/">Income Statement</a></li>
+    <li id="second" class="basic normal"> <a href="/balance_sheet/second/">Balance Sheet</a></li>
+    <li id="third" class="basic normal"> <a href="/trial_balance/third/">Trial Balance</a></li>
+</ul>
+</div>
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+</body>
+</html>

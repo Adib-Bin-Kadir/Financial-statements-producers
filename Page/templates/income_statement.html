@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %} Income Statement {% endblock %}
+
+{% block content %}
+<h3>Answer the following questions. If you do not have any answers, just type none.</h3>
+<form action="/income_statement_form/first/" method="post">
+    {% csrf_token %}
+    <div class="col">
+        {% for input in details_list %}
+        <div class="row space">
+            <label for="{{input}}">{{input}}:</label>
+            <input id="{{input}}" type="text" name="{{input}}" placeholder="Type here...">
+        </div>
+        {% endfor %}
+        <div class="row space">
+            <label for="expenses">Expense names:(separated by a comma)</label>
+            <input type="text" name="expenses" id="expenses" placeholder="Type here...">
+        </div>
+        <div class="row space">
+            <label for="values">Values:(separated by a comma)</label>
+            <input type="text" name="values" id="values" placeholder="Type here...">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+    </div>
+</form>
+{% endblock %}

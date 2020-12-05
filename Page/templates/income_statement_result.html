@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %} Income Statement {% endblock %}
+
+{% block content %}
+<div class="col">
+    <div class="row">
+        <table>
+            <tr>
+                <th>Details</th>
+                <th>{{ currency }}</th>
+                <th>{{ currency }}</th>
+            </tr>
+            {% for column1, column2, column3 in zipped_list %}
+            <tr>
+                <td>{{column1}}</td>
+                <td>{{column2}}</td>
+                <td>{{column3}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="row">
+        <form action="/income_statement/first/" method="get">
+            <button class="btn btn-success">Make another income statement</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %} Balance Sheet {% endblock %}
+
+{% block content %}
+<div class="col">
+    <div class="row">
+        <table>
+            <tr>
+                <th>Details</th>
+                <th>{{ currency }}</th>
+                <th>{{ currency }}</th>
+                <th>{{ currency }}</th>
+            </tr>
+            {% for column1, column2, column3, column4 in zipped_list %}
+            <tr>
+                <td>{{column1}}</td>
+                <td>{{column2}}</td>
+                <td>{{column3}}</td>
+                <td>{{column4}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="row">
+        <form action="/balance_sheet/second/" method="get">
+            <button class="btn btn-success">Make another statement</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

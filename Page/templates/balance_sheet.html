@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} Balance Sheet {% endblock %}
+
+{% block content %}
+<h3>Fill out this form for the balance sheet. If you have nothing to write in a particular textbox, type in none.
+If you have multiple items to fill in, type all of it in with the </h3>
+<form action="/balance_sheet_form/second/" method="post" class="form-inline">
+    {% csrf_token %}
+    <div class="col">
+        {% for detail in balance_list %}
+        <div class="row space">
+            <label for="{{detail}}">{{detail}}:</label>
+            <input type="text" name="{{detail}}" id="{{detail}}">
+        </div>
+        {% endfor %}
+        <div class="row space">
+            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+        </div>
+    </div>
+</form>
+{% endblock %}
